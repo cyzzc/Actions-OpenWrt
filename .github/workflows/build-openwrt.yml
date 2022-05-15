@@ -15,9 +15,9 @@ on:
   workflow_dispatch:
     inputs:
       ssh:
-        description: '[ssh-actions]改成[ssh],再按[Run workflow]按钮启动,则开启SSH连接配置固件'
+        description: 'SSH connection true to Actions'
         required: false
-        default: 'ssh-actions'
+        default: 'false'
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
