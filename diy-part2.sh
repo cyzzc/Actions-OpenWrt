@@ -28,3 +28,15 @@ sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.10/g' target/linux/x86/Makefi
 # 替换默认主题为 luci-theme-argon
 # sed -i 's/luci-theme-bootstrap/luci-theme-argon/' feeds/luci/collections/luci/Makefile
 # make menuconfig时记得勾选LuCI ---> Applications ---> luci-app-argon-config
+
+# 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间（根据编译机型变化,自行调整需要删除的固件名称）
+cat >"$CLEAR_PATH" <<-EOF
+packages
+config.buildinfo
+feeds.buildinfo
+openwrt-x86-64-generic-kernel.bin
+openwrt-x86-64-generic.manifest
+openwrt-x86-64-generic-squashfs-rootfs.img.gz
+sha256sums
+version.buildinfo
+EOF
